@@ -1,12 +1,12 @@
 import React from "react";
 
-function About() {
+function Home() {
   return (
     <div className="container">
       <div className="row">
         <div className="col md 12">
           <div className="alert alert-primary" role="alert">
-            Welcome to the Aboutpage
+            Welcome to the Homepage
           </div>
         </div>
       </div>
@@ -14,4 +14,4 @@ function About() {
   );
 }
 
-export default About;
+export default Home;

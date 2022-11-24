@@ -3,6 +3,8 @@ import Logo from "./images/dollar.png";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Products from "./components/Products";
+import Home from "./components/Home";
+import { Link, Switch, Route, useParams } from "react-router-dom"; //
 
 function App() {
   return (
@@ -10,7 +12,7 @@ function App() {
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            <img className="logo" src={Logo} alt="" />
+            <img className="logo" src={Logo} alt="Dollar" />
           </a>
           <button
             className="navbar-toggler"
@@ -26,24 +28,24 @@ function App() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link to="/" className="nav-link active">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/about" className="nav-link">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/products" className="nav-link">
                   Products
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/contact" className="nav-link">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -51,18 +53,39 @@ function App() {
       </nav>
       <div className="container mt-3 ">
         <div className="row">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/products">
+              <Products />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+          </Switch>
           <div className="col-md-12">
-            <div class="alert alert-primary" role="alert">
-              Welcome to the Homepage
-            </div>
-          </div>
-          <div className="col-md-12">
-            <div class="alert alert-warning" role="alert">
-              ID : Home
+            <div className="alert alert-warning" role="alert">
+              <Switch>
+                <Route path="/:id" children={<Child />}></Route>
+              </Switch>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function Child() {
+  let { id } = useParams();
+
+  return (
+    <div>
+      <h3>ID : {id}</h3>
     </div>
   );
 }
