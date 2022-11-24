@@ -1,5 +1,8 @@
 import "./App.css";
 import Logo from "./images/dollar.png";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Products from "./components/Products";
 
 function App() {
   return (
@@ -46,6 +49,20 @@ function App() {
           </div>
         </div>
       </nav>
+      <div className="container mt-3 ">
+        <div className="row">
+          <div className="col-md-12">
+            <div class="alert alert-primary" role="alert">
+              Welcome to the Homepage
+            </div>
+          </div>
+          <div className="col-md-12">
+            <div class="alert alert-warning" role="alert">
+              ID : Home
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
